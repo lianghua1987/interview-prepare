@@ -5,14 +5,9 @@
  */
 package com.hua.java8.lambda;
 
-/**
- *
- * @author hliang
- */
 @FunctionalInterface
-public interface MyPredicate<T> {
-    
-    public boolean test(T t); 
-    
-     //public boolean test1(T t); 
+public interface MyFunc {
+
+    public Integer getValue(Integer value);
+
 }

@@ -10,9 +10,7 @@ package com.hua.java8.lambda;
  * @author hliang
  */
 @FunctionalInterface
-public interface MyPredicate<T> {
+public interface MyFunc1 {
     
-    public boolean test(T t); 
-    
-     //public boolean test1(T t); 
+    public String getValue(String value);
 }

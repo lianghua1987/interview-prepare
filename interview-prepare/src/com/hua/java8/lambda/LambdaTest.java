@@ -11,6 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -59,16 +60,21 @@ public class LambdaTest {
         List<Employee> emps2 = filterEmployee(employees, e -> ((Employee) e).getSalary() > 20000);
         emps2.stream().forEach(System.out::println);
 
+        System.out.println("lambda22");
+        List<Employee> emps22 = filterEmployee1(employees, e -> ((Employee) e).getSalary() > 20000);
+        emps22.stream().forEach(System.out::println);
+
+        
         // 优化方式4
         System.out.println("stream");
         employees.stream().filter(e -> e.getSalary() > 1000).forEach(System.out::println);
-        
+
         System.out.println("stream 3");
         employees.stream().filter(e -> e.getSalary() > 1000).limit(3).forEach(System.out::println);
-        
+
         System.out.println("stream name only");
         employees.stream().map(Employee::getName).forEach(System.out::println);
-        
+
     }
 
     public static List<Employee> filterEmployee(List<Employee> list, MyPredicate mp) {
@@ -79,6 +85,11 @@ public class LambdaTest {
             }
         }
         return emps;
+    }
+
+    public static List<Employee> filterEmployee1(List<Employee> list, MyPredicate mp) {
+
+        return list.stream().filter(e -> mp.test(e) == true).collect(Collectors.toList());
     }
 
 }
