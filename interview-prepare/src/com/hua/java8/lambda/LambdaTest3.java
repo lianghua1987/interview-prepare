@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class LambdaTest3 {
 
+            
     static List<Employee> employees = Arrays.asList(
             new Employee("张三", 23, 5343.55),
             new Employee("李四", 34, 12345.23),
